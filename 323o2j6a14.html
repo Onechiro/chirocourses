@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" style="--bg: #0f2f6b; --accent: #2563eb; --accent-2: #2563eb;"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Straighten Up: Understanding and Solving Your Posture Problems with Chiropractic Care</title>
+  <style>
+    :root {
+      --bg: #0f2f6b;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent-2: #2563eb;
+      --ok: #166534;
+      --ok-bg: #dcfce7;
+      --bad: #991b1b;
+      --bad-bg: #fee2e2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0a2352 0%, #0f2f6b 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .wrap { width: min(900px, calc(100% - 28px)); margin: 28px auto 0; padding-bottom: 80px; }
+    .hero { background: var(--panel); border: 1px solid #dbe7ff; border-radius: 24px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+    .eyebrow { font-size: .85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .squeeze-page { display: block; }
+    .squeeze-card {
+      max-width: 760px;
+      margin: 150px auto 28px;
+      background: var(--panel);
+      border: 1px solid #dbe7ff;
+      border-radius: 24px;
+      padding: 34px 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.16);
+      text-align: center;
+    }
+    .squeeze-card h1,
+    .squeeze-card h2,
+    .squeeze-card p,
+    .squeeze-card div {
+      text-align: center;
+    }
+    .squeeze-card h2 {
+      font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+      line-height: 1.45;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    .squeeze-embed-box {
+      margin-top: 24px;
+      min-height: 160px;
+      border: 2px dashed #bfdbfe;
+      border-radius: 18px;
+      background: #f8fbff;
+      padding: 18px;
+      text-align: center;
+      font: 500 15px/1.7 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      color: #64748b;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    .squeeze-embed-box.is-empty::before {
+      content: attr(data-placeholder);
+      display: block;
+      color: #64748b;
+      white-space: pre-wrap;
+    }
+    .intro-page { display: block; margin-top: 18px; }
+    .intro-card { background: var(--panel); border: 1px solid #dbe7ff; border-radius: 24px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,.16); transition: transform .2s ease; }
+    .intro-card:hover { transform: translateY(-2px); }
+    .hero + .intro-card { margin-top: 40px; }
+    .intro-message { font-size:17px; line-height:1.7; max-width:680px; margin:0 auto; text-align:center; }
+    .intro-divider { width:60px; height:2px; background:rgba(0,0,0,.08); margin:12px auto 18px; border-radius:2px; }
+    .course-time { display:flex; align-items:center; justify-content:center; gap:6px; margin:20px 0 10px; color:#111827; }
+    .course-time-icon { font-size:18px; opacity:.8; }
+    .course-time-value { font-weight:600; font-size:14px; line-height:1; color:inherit; }
+    .course-time-label { font-weight:600; font-size:14px; opacity:.7; }
+    .intro-start-wrap { text-align:center; margin-top:22px; }
+    .hero .muted { opacity:.82; }
+    .nav-btn.primary { transition: all .2s ease; }
+    .nav-btn.primary:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.15); }
+    h1, h2, h3, h4 { margin: 0 0 10px; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 4vw, 2.8rem); }
+    p, li { line-height: 1.6; }
+    .muted { color: var(--muted); }
+    .progress-wrap { margin-top: 16px; position: static; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border: 1px solid #dbe7ff; border-radius: 18px; padding: 14px; box-shadow: 0 10px 24px rgba(0,0,0,.12); }
+    .progress-bar { width: 100%; height: 12px; background: #dbeafe; border-radius: 999px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), #38bdf8); transition: width .25s ease; }
+    .progress-text { margin-top: 8px; font-size: .92rem; color: var(--muted); font-weight: 600; }
+    .lesson { display: none; margin-top: 18px; background: var(--panel); border: 1px solid #dbe7ff; border-radius: 24px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.16); min-height: 420px; }
+    .lesson.active { display: block; }
+    .step { display: inline-block; padding: 6px 10px; border-radius: 999px; background: #dbeafe; color: #1d4ed8; font-weight: 700; font-size: .85rem; margin-bottom: 10px; }
+    .lesson-counter { float:right; color: var(--muted); font-size: .9rem; font-weight: 700; }
+    .summary { color: var(--muted); }
+    .module-image-wrap { margin-top: 18px; text-align: center; }
+    .module-image { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px; display: block; margin: 0 auto; border: 1px solid var(--border); }
+    .box, .quiz { margin-top: 16px; border: 1px solid var(--border); border-radius: 18px; padding: 18px; background: #fff; }
+    .quiz .options { display: grid; gap: 10px; margin-top: 12px; }
+    .option-btn, .nav-btn, .cta-btn {
+      appearance: none; border: 0; border-radius: 12px; padding: 12px 16px; font: inherit; font-weight: 700; cursor: pointer; transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+    }
+    .option-btn { background: #eff6ff; color: #1e3a8a; text-align: left; border: 1px solid #bfdbfe; }
+    .nav-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+    .nav-btn { background: transparent; color: #0f172a; border: 2px solid #0f2f6b; }
+    .nav-btn.primary, .cta-btn { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: white; border: 0; box-shadow: 0 10px 20px rgba(37,99,235,.22); }
+    .nav-btn:hover, .cta-btn:hover, .option-btn:hover { transform: translateY(-1px); }
+    .nav-btn:disabled { opacity: .5; cursor: not-allowed; }
+    .feedback { margin-top: 12px; border-radius: 12px; padding: 10px 12px; background: #f8fafc; border: 1px solid var(--border); }
+    .feedback.good { background: var(--ok-bg); color: var(--ok); border-color: #86efac; }
+    .feedback.bad { background: var(--bad-bg); color: var(--bad); border-color: #fca5a5; }
+    .complete { display: none; margin-top: 18px; background: var(--panel); border: 1px solid #dbe7ff; border-radius: 24px; padding: 28px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.16); }
+    .small { font-size: .92rem; }
+    @media (max-width: 640px) {
+      .nav-row { flex-direction: column; }
+      .nav-btn { width: 100%; }
+    }
+  
+.cta-button a, .cta-button button { text-decoration:none !important; }
+</style>
+
+</head>
+<body data-course-file="323o2j6a14.html" data-has-squeeze="0" spellcheck="true" data-new-gr-c-s-loaded="14.1138.0" style="background: linear-gradient(rgb(10, 35, 82) 0%, rgb(15, 47, 107) 100%);" data-new-gr-c-s-check-loaded="14.1138.0" data-gr-ext-installed="">
+  <div class="wrap">
+    
+    
+
+    <section class="intro-page" id="introPage" style="display: none;">
+      <section class="hero">
+        <div class="eyebrow">Interactive mini-course</div>
+        <h1>Straighten Up: Understanding and Solving Your Posture Problems with Chiropractic Care</h1>
+        <p class="muted">Discover what causes bad posture and how Chiropractic can help you stand tall and feel better.</p>
+      </section>
+
+      <section class="intro-card" id="introCard">
+        <div class="intro-divider"></div>
+        <p class="intro-message">Welcome! In this course, you'll build a clear understanding of Straighten Up: Understanding and Solving Your Posture Problems with Chiropractic Care, and by the end you'll be in a strong position to apply what you learn with confidence.</p>
+        <div class="course-time">
+          <span class="course-time-icon">◷</span>
+          <span class="course-time-value">8</span>
+          <span class="course-time-label">minutes</span>
+        </div>
+        <div class="intro-start-wrap">
+          <button class="nav-btn primary" onclick="beginCourse()">Let's Get Started - Click Here To Begin</button>
+        </div>
+      </section>
+    </section>
+
+    
+    <div class="progress-wrap" id="progressWrap" style="display: block;">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="background: rgb(37, 99, 235); width: 100%;"></div></div>
+      <div class="progress-text" id="progressText">Complete</div>
+    </div>
+
+    
+        <section class="lesson" data-index="0">
+          <div class="lesson-top">
+            <span class="step">Module 1</span>
+            <span class="lesson-counter">1 / 4</span>
+            <h2>Lesson 1: What Causes Bad Posture?</h2>
+            <p class="summary">Learn about the main factors that lead to bad posture in everyday life.</p>
+          </div>
+
+          
+          <div class="module-image-wrap">
+            <img class="module-image" src="images/lesson-1-what-causes-bad-posture.webp" data-export-src="images/lesson-1-what-causes-bad-posture.webp" alt="Lesson 1: What Causes Bad Posture?" data-editor-resizable="1">
+          </div>
+
+          <div class="box">
+            <h3>What you'll learn</h3>
+            <ul><li>Prolonged sitting is a leading cause of poor posture.</li><li>Muscle imbalances develop from repetitive habits and inactivity.</li><li>Stress and lack of body awareness often make posture worse.</li></ul>
+          </div>
+
+          <div class="box">
+            <h3>Module 1</h3>
+            <p>Most people struggle with bad posture at some point, but few understand the real underlying causes. One of the most common contributors is spending long hours sitting—especially at desks, in front of computers, or using mobile devices. When you remain in one position for too long, your muscles can weaken, tighten, or adapt in unhealthy ways.</p><p>Muscle imbalances are another frequent culprit. For example, sitting hunched forward can leave your chest muscles too tight and your upper back muscles too weak. Over time, your body will naturally adapt to this position, making it feel 'normal' even when it’s unhealthy.</p><p>Stress, fatigue, and poor body awareness play their roles too. Many people unconsciously hunch their shoulders or slouch when stressed or distracted. Without deliberate effort to adjust, these habits stick and shape your posture further.</p><p>A common misconception is that you can “fix” posture just by sitting up straight—but it’s much more about daily habits and muscle balance. Next, you’ll learn what Chiropractic care is and how it addresses the real roots of posture issues.</p>
+          </div>
+
+          
+          <div class="quiz">
+            <h4>Quick Check</h4>
+            <p>Which of the following is a common cause of bad posture?</p>
+            <div class="options">
+              
+                <button class="option-btn" data-correct="1" onclick="checkAnswer(this)">Sitting for long periods without breaks</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Eating a high-protein diet</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Excessive sunlight exposure</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Drinking cold beverages</button>
+              
+            </div>
+            <div class="feedback small">Choose an answer.</div>
+          </div>
+
+          
+          <div class="box recap">
+            <h3>Recap</h3>
+            <ul><li>Prolonged sitting and sedentary habits contribute to bad posture.</li><li>Muscle imbalances from daily routines make posture worse.</li><li>Stress and lack of awareness can deepen poor posture habits.</li></ul>
+          </div>
+
+          <div class="nav-row">
+            <button class="nav-btn" onclick="prevLesson()" disabled="">Previous</button>
+            <button class="nav-btn primary" onclick="nextLesson()">Next Module</button>
+          </div>
+        </section>
+        <section class="lesson" data-index="1">
+          <div class="lesson-top">
+            <span class="step">Module 2</span>
+            <span class="lesson-counter">2 / 4</span>
+            <h2>Lesson 2: How Chiropractic Care Approaches Posture Problems</h2>
+            <p class="summary">Understand how Chiropractic care works to identify and correct the sources of poor posture.</p>
+          </div>
+
+          
+          <div class="module-image-wrap">
+            <img class="module-image" src="images/lesson-2-how-chiropractic-care-approaches-posture-problems.webp" data-export-src="images/lesson-2-how-chiropractic-care-approaches-posture-problems.webp" alt="Lesson 2: How Chiropractic Care Approaches Posture Problems" data-editor-resizable="1">
+          </div>
+
+          <div class="box">
+            <h3>What you'll learn</h3>
+            <ul><li>Chiropractors assess spinal alignment and body mechanics.</li><li>Adjustments and exercises target muscle imbalances.</li><li>Chiropractic care is non-invasive and focuses on natural, hands-on techniques.</li></ul>
+          </div>
+
+          <div class="box">
+            <h3>Module 2</h3>
+            <p>Chiropractic care is a healthcare approach centered on diagnosing, treating, and preventing problems related to the spine, muscles, and nervous system. If you’ve never visited a Chiropractor before, their main goal is to help your body work better—using gentle, manual adjustments to realign your spine, have your nervous system functioning well, and support optimal movement.</p><p>When it comes to posture, a Chiropractor first examines how your head, shoulders, and hips align. They may check your movement, flexibility, and muscle tone to pinpoint exactly where imbalances or misalignments are affecting your posture. Many posture problems start with subtle misalignments in the spine or pelvis that build up over time.</p><p>The Chiropractor uses hands-on techniques called adjustments to correct these issues. They might also recommend targeted exercises to strengthen weak muscles and stretch tight ones. This proactive approach addresses both symptoms and root causes, rather than only focusing on how you sit or stand.</p><p>A common mistake is thinking Chiropractic care is just about “cracking backs.” In reality, it’s a whole-body approach focused on function, mobility, and well-being. In the next lesson, you’ll see specific examples of how Chiropractic care can help with posture.</p>
+          </div>
+
+          
+          <div class="quiz">
+            <h4>Quick Check</h4>
+            <p>Which best describes a core part of Chiropractic care for posture?</p>
+            <div class="options">
+              
+                <button class="option-btn" data-correct="1" onclick="checkAnswer(this)">Manual adjustments to improve spinal alignment</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Only prescribing medication</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Focusing exclusively on diet</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Ignoring muscle balance</button>
+              
+            </div>
+            <div class="feedback small">Choose an answer.</div>
+          </div>
+
+          
+          <div class="box recap">
+            <h3>Recap</h3>
+            <ul><li>Chiropractors assess and correct spine and body alignment.</li><li>They use hands-on adjustments and targeted exercises.</li><li>Chiropractic care addresses root causes, not just symptoms.</li></ul>
+          </div>
+
+          <div class="nav-row">
+            <button class="nav-btn" onclick="prevLesson()">Previous</button>
+            <button class="nav-btn primary" onclick="nextLesson()">Next Module</button>
+          </div>
+        </section>
+        <section class="lesson" data-index="2">
+          <div class="lesson-top">
+            <span class="step">Module 3</span>
+            <span class="lesson-counter">3 / 4</span>
+            <h2>Lesson 3: Real-Life Improvements: Chiropractic Solutions for Posture Issues</h2>
+            <p class="summary">See how Chiropractic care can bring real, noticeable changes to posture through practical interventions.</p>
+          </div>
+
+          
+          <div class="module-image-wrap">
+            <img class="module-image" src="images/lesson-3-real-life-improvements-chiropractic-solutions-for-posture-issues.webp" data-export-src="images/lesson-3-real-life-improvements-chiropractic-solutions-for-posture-issues.webp" alt="Lesson 3: Real-Life Improvements: Chiropractic Solutions for Posture Issues" data-editor-resizable="1">
+          </div>
+
+          <div class="box">
+            <h3>What you'll learn</h3>
+            <ul><li>Cases include office workers, students, and athletes improving posture with care.</li><li>Chiropractors develop custom plans with adjustments.</li><li>Ongoing support and education ensure lasting results.</li></ul>
+          </div>
+
+          <div class="box">
+            <h3>Module 3</h3>
+            <p>Let’s look at how people experience improvements in posture with Chiropractic support. Imagine an office worker who spends 8 hours a day at a computer, experiencing neck pain and hunching forward. When they visit a Chiropractor, the first step is a thorough posture assessment and discussion of daily habits. The Chiropractor might find that their shoulders are rounded and certain back muscles are weak.</p><p>They receive a care plan, which includes a series of gentle spinal adjustments and simple at-home stretches to open the chest and strengthen the upper back. After several weeks, they notice less discomfort, easier upright sitting, and even improved confidence in their appearance. The Chiropractor checks progress regularly and adapts care as the patient improves.</p><p>It’s a common misconception that posture can be fixed overnight. True improvement is gradual and requires regular attention—for example, small daily habits, brief exercise routines, and regular check-ins. Chiropractors help people build these into their lives and avoid slipping back into bad habits.</p><p>Your next step is learning ways to maximize your results and make good posture last through sustainable habits.</p>
+          </div>
+
+          
+          <div class="quiz">
+            <h4>Quick Check</h4>
+            <p>What is an important part of a successful Chiropractic plan for posture?</p>
+            <div class="options">
+              
+                <button class="option-btn" data-correct="1" onclick="checkAnswer(this)">Personalized exercises and regular adjustments</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">A one-time treatment with no follow-up</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Ignoring daily habits</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Avoiding discussions about posture</button>
+              
+            </div>
+            <div class="feedback small">Choose an answer.</div>
+          </div>
+
+          
+          <div class="box recap">
+            <h3>Recap</h3>
+            <ul><li>Chiropractic care creates personalized plans for real posture improvement.</li><li>Lasting change comes from consistent adjustments and home exercises.</li><li>Education and follow-up are key to preventing relapse.</li></ul>
+          </div>
+
+          <div class="nav-row">
+            <button class="nav-btn" onclick="prevLesson()">Previous</button>
+            <button class="nav-btn primary" onclick="nextLesson()">Next Module</button>
+          </div>
+        </section>
+        <section class="lesson" data-index="3">
+          <div class="lesson-top">
+            <span class="step">Module 4</span>
+            <span class="lesson-counter">4 / 4</span>
+            <h2>Lesson 4: Building Better Posture: Your Next Steps with Chiropractic Support</h2>
+            <p class="summary">Learn how to maintain and refine your posture improvements with ongoing support, lifestyle changes, and Chiropractic care.</p>
+          </div>
+
+          
+          <div class="module-image-wrap">
+            <img class="module-image" src="images/lesson-4-building-better-posture-your-next-steps-with-chiropractic-support.webp" data-export-src="images/lesson-4-building-better-posture-your-next-steps-with-chiropractic-support.webp" alt="Lesson 4: Building Better Posture: Your Next Steps with Chiropractic Support" data-editor-resizable="1">
+          </div>
+
+          <div class="box">
+            <h3>What you'll learn</h3>
+            <ul><li>Regular check-ins help track progress and refine your plan.</li><li>Small, daily actions like movement breaks and stretches are essential.</li><li>A supportive relationship with your Chiropractor guides you over the long term.</li></ul>
+          </div>
+
+          <div class="box">
+            <h3>Module 4</h3>
+            <p>Achieving good posture takes more than a one-time fix—it’s about building habits and continually supporting your progress. After initial improvements with Chiropractic care, it’s important to keep up with regular appointments. These check-ins allow your Chiropractor to monitor your posture, catch new issues early, and adjust your care plan as needed.</p><p>Consistency is key. Daily actions such as standing and moving every hour, stretching your chest, and strengthening your back help reinforce your corrected posture. Over time, these habits become automatic and help prevent old problems from returning.</p><p>Communicating with your Chiropractor is also vital. Share any new discomforts or challenges, and don’t hesitate to ask for extra guidance on exercises or ergonomics at work or home. Many people think they must do everything alone—but ongoing support makes a big difference.</p><p>Your best next step is to reach out for a posture assessment and discussion with a Chiropractor. This starts you on a path tailored to your unique needs and helps you stay accountable as you build healthier, longer-lasting posture habits.</p>
+          </div>
+
+          
+          <div class="quiz">
+            <h4>Quick Check</h4>
+            <p>Which strategy helps ensure long-term improvement in posture?</p>
+            <div class="options">
+              
+                <button class="option-btn" data-correct="1" onclick="checkAnswer(this)">Continuing regular Chiropractic appointments and good habits</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Stopping all exercises after initial progress</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Relying only on reminders</button>
+              
+                <button class="option-btn" data-correct="0" onclick="checkAnswer(this)">Ignoring new discomforts or changes</button>
+              
+            </div>
+            <div class="feedback small">Choose an answer.</div>
+          </div>
+
+          
+          <div class="box recap">
+            <h3>Recap</h3>
+            <ul><li>Maintain gains with routine Chiropractic check-ins.</li><li>Daily movement and simple exercises keep posture improving.</li><li>Active communication and support prevent setbacks.</li></ul>
+          </div>
+
+          <div class="nav-row">
+            <button class="nav-btn" onclick="prevLesson()">Previous</button>
+            <button class="nav-btn primary" onclick="nextLesson()">Now Click Here To Complete This Course</button>
+          </div>
+        </section>
+
+    <section class="complete" id="completeCard" style="display: block;">
+      <h2>Course Complete</h2>
+      <p>Congratulations! You now understand what causes posture problems and how Chiropractic care can help you on your journey to better posture.</p>
+      <p class="muted small">Use the button below to take the next step, or start over and run through the course again.</p>
+      <a class="cta-btn" style="text-decoration:none; margin-top: 18px; display:inline-block;" href="https://ailcol.neptune.practicehub.io/p/booking/?lid=1&amp;" target="_blank" rel="noopener noreferrer">For a free chat with a Chiropractor and posture scan</a>&nbsp;<div class="nav-row" style="justify-content:center; margin-top: 18px;">
+        <button class="nav-btn" onclick="restartCourse()">Start Over</button>
+      </div>
+      
+      <hr style="margin: 24px 0; border:0; border-top:1px solid #d1d5db;">
+      <p class="muted small" style="text-align:center; margin-bottom: 12px;">Download the information in this course to keep and refer back to</p>
+      <div style="text-align:center;">
+        <a class="cta-btn pdf-download-btn" style="text-decoration:none; display:inline-block;" href="course.pdf" target="_blank" rel="noopener noreferrer">Download a PDF of This Course Here</a>
+      </div>
+    </section>
+  </div>
+
+  <script id="courseRuntimeScript">
+    let currentLesson = 0;
+    const lessons = [...document.querySelectorAll('.lesson')];
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    const progressWrap = document.getElementById('progressWrap');
+    const completeCard = document.getElementById('completeCard');
+    const introPage = document.getElementById('introPage');
+    const squeezePage = document.getElementById('squeezePage');
+
+    function beginCourse() {
+      if (introPage) introPage.style.display = 'none';
+      if (squeezePage) squeezePage.style.display = 'none';
+      if (progressWrap) progressWrap.style.display = 'block';
+      completeCard.style.display = 'none';
+      renderLesson();
+    }
+
+    function renderLesson() {
+      lessons.forEach((lesson, index) => lesson.classList.toggle('active', index === currentLesson));
+      if (progressFill && progressText) {
+        const pct = ((currentLesson + 1) / lessons.length) * 100;
+        progressFill.style.width = pct + '%';
+        progressText.textContent = 'Module ' + (currentLesson + 1) + ' of ' + lessons.length;
+      }
+      completeCard.style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextLesson() {
+      if (currentLesson < lessons.length - 1) {
+        currentLesson += 1;
+        renderLesson();
+      } else {
+        lessons.forEach(l => l.classList.remove('active'));
+        if (progressFill && progressText) {
+          progressFill.style.width = '100%';
+          progressText.textContent = 'Complete';
+        }
+        completeCard.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function prevLesson() {
+      if (currentLesson > 0) {
+        currentLesson -= 1;
+        renderLesson();
+      }
+    }
+
+    function resetQuiz(btn) {
+      const wrap = btn.closest('.quiz');
+      const feedback = wrap.querySelector('.feedback');
+      wrap.querySelectorAll('.option-btn').forEach(b => b.disabled = false);
+      feedback.textContent = 'Choose an answer.';
+      feedback.className = 'feedback small';
+      const retryBtn = wrap.querySelector('.retry-btn');
+      if (retryBtn) retryBtn.remove();
+    }
+
+    function checkAnswer(btn) {
+      const wrap = btn.closest('.quiz');
+      const feedback = wrap.querySelector('.feedback');
+      wrap.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+      const oldRetry = wrap.querySelector('.retry-btn');
+      if (oldRetry) oldRetry.remove();
+      if (btn.dataset.correct === '1') {
+        feedback.textContent = 'Correct.';
+        feedback.className = 'feedback good';
+      } else {
+        feedback.textContent = 'Not quite. Review the lesson and try again.';
+        feedback.className = 'feedback bad';
+        const retryBtn = document.createElement('button');
+        retryBtn.className = 'nav-btn retry-btn';
+        retryBtn.style.marginTop = '12px';
+        retryBtn.textContent = 'Start quiz again';
+        retryBtn.onclick = function() { resetQuiz(retryBtn); };
+        feedback.insertAdjacentElement('afterend', retryBtn);
+      }
+    }
+
+    function restartCourse() {
+      currentLesson = 0;
+      document.querySelectorAll('.quiz').forEach(wrap => {
+        const feedback = wrap.querySelector('.feedback');
+        wrap.querySelectorAll('.option-btn').forEach(b => b.disabled = false);
+        if (feedback) {
+          feedback.textContent = 'Choose an answer.';
+          feedback.className = 'feedback small';
+        }
+        const retryBtn = wrap.querySelector('.retry-btn');
+        if (retryBtn) retryBtn.remove();
+      });
+      lessons.forEach(l => l.classList.remove('active'));
+      if (introPage) introPage.style.display = 'block';
+      if (squeezePage) squeezePage.style.display = 'block';
+      if (progressWrap) progressWrap.style.display = 'none';
+      completeCard.style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    restartCourse();
+  </script>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
